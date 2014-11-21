@@ -1,9 +1,10 @@
-## The Function pairs allows the Creation of a presistent matrix,
-## And Caching it's inverse for further use.
+## The two functions allow the creation of a presistent matrix,
+## And caching it's inverse for further use.
 
 
-## Creates a presistent matrix, Which and retains the inverse matrix.
-## Used for Caching (does not calculate the inverse, just retains it)
+## Creates a presistent matrix (in the form of a list of 4 functions), 
+## Which retains the the original and the inverse matrix. 
+## Used for caching (does not calculate the inverse, just retains it)
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
         set <- function(y) {
@@ -20,8 +21,8 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Takes as input a list created by makeCacheMatrix, 
-## and returns the cached inverse if exsits.
-## Otherwise calculates the inverse, addes it to the cachedMatrix, and returns it.
+## and returns the cached inverse if exists.
+## Otherwise calculates the inverse, addes it to the cached matrix, and returns it.
 cacheSolve <- function(x, ...) {
         inv <- x$getinverse()
         if(!is.null(inv)) {
